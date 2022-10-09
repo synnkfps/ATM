@@ -1,10 +1,10 @@
 bills = {100:0, 50:0, 20:0, 10:0, 5:0, 2:0}
 
-def sacar(withdraw):
+def withdraw(value):
     money = bills.keys()
     
     for i in money:
-        while withdraw >= i and not ((withdraw % i == 1 or withdraw % i == 3) and (withdraw % i/2) < (i)):
+        while value >= i and not ((value % i == 1 or value % i == 3) and (value % i/2) < (i)):
             bills[i] += 1;
             withdraw -= i;
 
@@ -12,7 +12,7 @@ try:
     withdrawValue = float(input("('q' quit 'quit' to quit)\nType an amount: "))
     result = 0;
         
-    sacar(withdrawValue);
+    withdraw(withdrawValue);
 
     for i in bills:
         if bills[i] != 0:
